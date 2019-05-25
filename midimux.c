@@ -27,6 +27,7 @@ int open_seq(snd_seq_t **seq_handle, int *mux, int dev[], int devnum) {
                     SND_SEQ_PORT_CAP_READ|SND_SEQ_PORT_CAP_SUBS_READ;
 
   // creating final multiplexer port
+  printf("creating port: MUX\n");
   if ((*mux = snd_seq_create_simple_port(*seq_handle, "MUX",
             in_out_opts, SND_SEQ_PORT_TYPE_APPLICATION)) < 0) {
     fprintf(stderr, "Error creating MUX port.\n");
@@ -36,6 +37,7 @@ int open_seq(snd_seq_t **seq_handle, int *mux, int dev[], int devnum) {
   // creating n device ports
   for (int i = 0; i < devnum; i++) {
     sprintf(portname, "DEV%02d", i);
+    printf("creating port: %s\n", portname);
     if ((dev[i] = snd_seq_create_simple_port(*seq_handle, portname,
               in_out_opts, SND_SEQ_PORT_TYPE_APPLICATION)) < 0) {
       sprintf(error, "Error creating DEV%02d\n", i);
