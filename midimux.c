@@ -127,7 +127,6 @@ void midi_multiplex(snd_seq_t *seq_handle, int mux, int dev[], int devices) {
 
 
 int main(int argc, char *argv[]) {
-  // TODO: more than 2 devices, based on command line argument
   snd_seq_t *seq_handle;
   struct pollfd *pfd;
   int npfd;
@@ -135,6 +134,15 @@ int main(int argc, char *argv[]) {
   int devnum = 2;
   int dev[devnum];
   int mux;
+
+  // device count from command line
+  // two devices minimum
+  if (argc > 1) {
+    devnum = atoi(argv[1]);
+    if (devnum < 2) {
+      devnum = 2;
+    }
+  }
 
   if (open_seq(&seq_handle, &mux, dev, devnum) < 0) {
     fprintf(stderr, "Error opening the sequencer and ports\n");
