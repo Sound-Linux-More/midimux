@@ -1,5 +1,13 @@
-midimux: midimux.c
-	gcc -o midimux -lasound midimux.c
+PROJECT = midimux
+CC = gcc
+CFLAGS = -Wall
+LDFLAGS = -lasound -s
+RM = rm -f
+
+all: $(PROJECT)
+
+$(PROJECT): $(PROJECT).c
+	$(CC) $(CFLAGS) $^ -o $@ $(LDFLAGS)
 
 clean:
-	rm midimux
+	$(RM) $(PROJECT)

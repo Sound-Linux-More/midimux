@@ -1,3 +1,9 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/Sound-Linux-More/midimux)
+![GitHub Release Date](https://img.shields.io/github/release-date/Sound-Linux-More/midimux)
+![GitHub repo size](https://img.shields.io/github/repo-size/Sound-Linux-More/midimux)
+![GitHub all releases](https://img.shields.io/github/downloads/Sound-Linux-More/midimux/total)
+![GitHub](https://img.shields.io/github/license/Sound-Linux-More/midimux)
+
 # midimux
 
 ## what is it?
